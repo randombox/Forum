@@ -31,8 +31,20 @@ public class TopicPost extends Post {
 	
 	private boolean removeComment(int id, int start, int end)
 	{
-		// Currently doing this right now...
-		return false;
+		if((end-start) < 0)
+			return false;
+		
+		int middle = (end - start)/2;
+		CommentPost cp = cmpost.get(middle);
+		
+		if(cp.getID() == id) {
+			cmpost.remove(middle);
+			return true;
+		} else if(cp.getID() < id) {
+			return removeComment(id, middle+1, end);
+		} else {
+			return removeComment(id, start, middle-1);
+		}
 	}
 
 	public String toString()
