@@ -25,25 +25,30 @@ public class TopicPost extends Post {
 	{
 		int start = 0;
 		int end = cmpost.size() - 1;
+		int index = searchComment(id, start, end);
 		
-		return removeComment(id, start, end);
+		if(index == -1) {
+			return false;
+		} else {
+			cmpost.remove(index);
+			return true;
+		}
 	}
 	
-	private boolean removeComment(int id, int start, int end)
+	private int searchComment(int id, int start, int end)
 	{
 		if((end-start) < 0)
-			return false;
+			return -1;
 		
 		int middle = (end - start)/2;
 		CommentPost cp = cmpost.get(middle);
 		
 		if(cp.getID() == id) {
-			cmpost.remove(middle);
-			return true;
+			return middle;
 		} else if(cp.getID() < id) {
-			return removeComment(id, middle+1, end);
+			return searchComment(id, middle+1, end);
 		} else {
-			return removeComment(id, start, middle-1);
+			return searchComment(id, start, middle-1);
 		}
 	}
 
