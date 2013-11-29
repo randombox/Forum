@@ -1,21 +1,21 @@
-/**
- * Auto Generated Java Class.
- */
+import java.util.*;
+
 public class Account {
-  String author;
-  String password;
-  public Account(String auth, String pass) { 
-    author = auth;
-    password = pass;
-    /* YOUR CONSTRUCTOR CODE HERE*/
-  }
-  public void setAuthor(String name)
-  {author = name;}
-  public String getAuthor()
-  {return author;}
-  public void setPassword(String pass)
-  {password = pass;}
-  public String getPassword()
-  {return password;}
-  
+
+	private String user;
+	private String password;
+
+	public Account(String user, String password) { 
+		this.user = user;
+		this.password = password;
+	}
+	public String getUser()
+	{
+		return user;
+	}
+
+	public String getPassword()
+	{
+		return password;
+	}
 }

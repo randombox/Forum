@@ -4,8 +4,7 @@ public abstract class Post{
 	private String text;
 	private String user;
 
-	public Post(int id,String date, String text, String user)
-
+	public Post(int id, String date, String text, String user)
 	{
 		this.id = id;
 		this.date = date;
@@ -13,11 +12,14 @@ public abstract class Post{
 		this.user = user;
 	}
 
-	public int getID(){return id;}
+	public int getID() {return id;}
 	public String getDate(){return date;}
 	public String getText(){return text;}
 	public String getUser(){return user;}
-
+	
+	public String toString() {
+		return "ID:"+getID()+" Date:"+getDate()+" UserName:"+getUser()+"\n"+" Body:"+getText()+"\n";
+	}
 
 
 

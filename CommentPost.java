@@ -1,13 +1,14 @@
 public class CommentPost extends Post {
 
-	public CommentPost(int id,String date, String text, String usname) { 
-		super(id,date,text,usname);
+	private static int commentIdCount = 0;
+	
+	public CommentPost(String date, String text, String user) { 
+		super(commentIdCount++, date,text,user);
 	}
 
 	public String toString()
 	{
-		String a = "ID:"+getID()+" Date:"+getDate()+" UserName:"+getUser()+ "\n";
-		a += "Comment:"+getText()+"\n";
-		return a;
+		String sum = "\n\n["+getID()+"] "+getUser()+" @ "+getDate()+"\n"+getText();
+		return sum;
 	}
 }
